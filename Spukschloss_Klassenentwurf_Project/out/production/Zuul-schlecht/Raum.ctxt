@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Raum
+comment0.text=\r\n\ Diese\ Klasse\ modelliert\ R\u00E4ume\ in\ der\ Welt\ von\ Zuul.\r\n\ \r\n\ Diese\ Klasse\ ist\ Teil\ der\ Anwendung\ "Die\ Welt\ von\ Zuul".\r\n\ "Die\ Welt\ von\ Zuul"\ ist\ ein\ sehr\ einfaches\ textbasiertes\ \r\n\ Adventure-Game.\r\n\ \r\n\ Ein\ "Raum"\ repr\u00E4sentiert\ einen\ Ort\ in\ der\ virtuellen\ Landschaft\ des\r\n\ Spiels.\ Ein\ Raum\ ist\ mit\ anderen\ R\u00E4umen\ \u00FCber\ Ausg\u00E4nge\ verbunden.\r\n\ M\u00F6gliche\ Ausg\u00E4nge\ liegen\ im\ Norden,\ Osten,\ S\u00FCden\ und\ Westen.\r\n\ F\u00FCr\ jede\ Richtung\ h\u00E4lt\ ein\ Raum\ eine\ Referenz\ auf\ den\ \r\n\ benachbarten\ Raum.\r\n\ \r\n\ @author\ \ Michael\ K\u00F6lling\ und\ David\ J.\ Barnes\r\n\ @version\ 2016.02.29\r\n
+comment1.params=beschreibung
+comment1.target=Raum(java.lang.String)
+comment1.text=\r\n\ Erzeuge\ einen\ Raum\ mit\ einer\ Beschreibung.\ Ein\ Raum\r\n\ hat\ anfangs\ keine\ Ausg\u00E4nge.\ Eine\ Beschreibung\ hat\ die\ Form\ \r\n\ "in\ einer\ K\u00FCche"\ oder\ "auf\ einem\ Sportplatz".\r\n\ @param\ beschreibung\ \ die\ Beschreibung\ des\ Raums\r\n
+comment2.params=norden\ osten\ sueden\ westen
+comment2.target=void\ setzeAusgaenge(Raum,\ Raum,\ Raum,\ Raum)
+comment2.text=\r\n\ Definiere\ die\ Ausg\u00E4nge\ dieses\ Raums.\ Jede\ Richtung\r\n\ f\u00FChrt\ entweder\ in\ einen\ anderen\ Raum\ oder\ ist\ 'null'\r\n\ (kein\ Ausgang).\r\n\ @param\ norden\ \ der\ Nordausgang\r\n\ @param\ osten\ \ \ der\ Ostausgang\r\n\ @param\ sueden\ \ der\ S\u00FCdausgang\r\n\ @param\ westen\ \ der\ Westausgang\r\n
+comment3.params=
+comment3.target=java.lang.String\ gibBeschreibung()
+comment3.text=\r\n\ @return\ \ die\ Beschreibung\ dieses\ Raums\r\n
+numComments=4
