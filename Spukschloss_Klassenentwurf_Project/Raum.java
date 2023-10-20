@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Set;
+
 /**
  * Diese Klasse modelliert Räume in der Welt von Zuul.
  * 
@@ -16,12 +19,8 @@
  */
 public class Raum 
 {
-    public String beschreibung;
-    public Raum nordausgang;
-    public Raum suedausgang;
-    public Raum ostausgang;
-    public Raum westausgang;
-
+  private String beschreibung;
+  private HashMap<String, Raum> ausgaenge;
     /**
      * Erzeuge einen Raum mit einer Beschreibung. Ein Raum
      * hat anfangs keine Ausgänge. Eine Beschreibung hat die Form 
@@ -31,32 +30,29 @@ public class Raum
     public Raum(String beschreibung) 
     {
         this.beschreibung = beschreibung;
+        ausgaenge = new HashMap<>();
     }
 
+
     /**
-     * Definiere die Ausgänge dieses Raums. Jede Richtung
-     * führt entweder in einen anderen Raum oder ist 'null'
-     * (kein Ausgang).
-     * @param norden  der Nordausgang
-     * @param osten   der Ostausgang
-     * @param sueden  der Südausgang
-     * @param westen  der Westausgang
+     * Definiere einen Ausgang aus deinem Raum
+     * @param richtung die Richtung, in der der Ausgang liefern soll.
+     * @param nachbar der Raum, der über diesen Ausgang erreicht wird.
      */
-    public void setzeAusgaenge(Raum norden, Raum osten,
-                               Raum sueden, Raum westen) 
-    {
-        if(norden != null) {
-            nordausgang = norden;
-        }
-        if(osten != null) {
-            ostausgang = osten;
-        }
-        if(sueden != null) {
-            suedausgang = sueden;
-        }
-        if(westen != null) {
-            westausgang = westen;
-        }
+
+    public void setzeAusgang(String richtung, Raum nachbar){
+
+        ausgaenge.put(richtung,nachbar);
+    }
+
+    public String gibAusgaengeAlsString(){
+
+        String ergebnis = "Ausgänge: ";
+        Set<String> keys =  ausgaenge.keySet();
+
+        for (String ausgang: keys) {
+            ergebnis += " " + ausgang;
+        }return ergebnis;
     }
 
     /**
@@ -66,4 +62,20 @@ public class Raum
     {
         return beschreibung;
     }
+
+
+
+    public Raum gibAusgang(String richtung){
+
+        return ausgaenge.get(richtung);
+    }
+
+    public String gibLangeBeschreibung(){
+
+        return "Sie sind " + beschreibung + ".\n" +gibAusgaengeAlsString();
+    }
+
 }
+
+
+

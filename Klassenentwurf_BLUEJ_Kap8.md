@@ -60,3 +60,57 @@ Für das Projekt Zuul-Schlecht die Methode raeumeAnlegen auf unser eigene Spiel 
 ### Übung: 8.5:
 
 Die Methode rauminfoAusgeben implementieren.
+
+### Übung 8.6:
+
+### Übung 8.7:
+
+    public String gibAusgaengeAlsString(){
+
+        String ergebnis = "Ausgänge ";
+        if (aktuellerRaum.nordausgang != null){
+            ergebnis += "north";
+        }
+        if (aktuellerRaum.suedausgang != null){
+            ergebnis += "south";
+        }
+        if (aktuellerRaum.westausgang != null){
+            ergebnis += "west";
+        }
+        if (aktuellerRaum.ostausgang != null){
+            ergebnis += "east";
+        }
+        return ergebnis;
+    }
+
+### Übung 8.8:
+
+Abschnitt aus BlueJ Buch Implementieren.
+
+### Übung 8.9:
+
+Was macht die Methode KeySet() von HashMap?
+
+Gibt eine Menge aller Schlüssel in der HashMap zurück. Man kann auf die Schlüssel zugreifen, die in der HashMap gespeichert sind.
+
+### 8.10:
+
+    public String gibAusgaengeAlsString(){
+
+        String ergebnis = "Ausgänge: ";
+        Set<String> keys =  ausgaenge.keySet();
+
+        for (String ausgang: keys) {
+            ergebnis += " " + ausgang;
+        }return ergebnis;
+        }
+
+ausgaenge ist eine Instanz der erstellten HashMap. Die Methode keySet() ruft von dieser Instanz alle Schlüssel auf und diese zurückgegebene Menge von Schlüsseln wird in der Variable keys gespeichert.
+
+Mit der foreach Schleife durchlaufe ich alle Schlüssel in "keys", jeder Schlüssel wird dann den String "ergebnis" angehängt mit einen Leerzeichen.
+
+### Übung 8.11:
+
+Die Methode gibLangeBeschreibung() implementieren.
+
+### Übung
