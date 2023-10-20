@@ -21,6 +21,7 @@ public class Raum
 {
   private String beschreibung;
   private HashMap<String, Raum> ausgaenge;
+  private Gegenstand gegenstand;
     /**
      * Erzeuge einen Raum mit einer Beschreibung. Ein Raum
      * hat anfangs keine Ausgänge. Eine Beschreibung hat die Form 
@@ -31,6 +32,7 @@ public class Raum
     {
         this.beschreibung = beschreibung;
         ausgaenge = new HashMap<>();
+        gegenstand = null;
     }
 
 
@@ -74,6 +76,11 @@ public class Raum
 
         return "Sie sind " + beschreibung + ".\n" +gibAusgaengeAlsString();
     }
+
+    public void setzteGegenstand (Gegenstand gegenstand){
+        this.gegenstand = gegenstand;
+    }
+
 
 }
 

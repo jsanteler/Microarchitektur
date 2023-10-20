@@ -15,7 +15,7 @@ class Befehlswoerter
 {
     // ein konstantes Array mit den gültigen Befehlswörtern
     private static final String gueltigeBefehle[] = {
-        "go", "quit", "help", "look"
+        "go", "quit", "help", "look", "eat"
     };
 
     /**
@@ -41,5 +41,16 @@ class Befehlswoerter
         // Wenn wir hierher gelangen, wurde die Eingabe nicht
         // in den Befehlswörter gefunden.
         return false;
+    }
+
+    /**
+     * Gibt alle gültigen Befehlwörter auf der Konsole aus.
+     */
+
+    public void gibBefehlliste(){
+        for(String befehl : gueltigeBefehle){
+            System.out.print(befehl + " ");
+        }
+        System.out.println("");
     }
 }

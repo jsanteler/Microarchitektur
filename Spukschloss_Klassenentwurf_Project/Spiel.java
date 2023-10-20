@@ -24,6 +24,8 @@ public class Spiel
     private Parser parser;
     private Raum aktuellerRaum;
 
+    private Gegenstand gegenstand;
+
     /**
      * Erzeuge ein Spiel und initialisiere die interne Raumkarte.
      */
@@ -31,6 +33,7 @@ public class Spiel
     {
         raeumeAnlegen();
         parser = new Parser();
+
     }
 
     /**
@@ -58,6 +61,21 @@ public class Spiel
         kammer.setzeAusgang("south", keller);
 
         aktuellerRaum = draussen;  // das Spiel startet draussen
+
+
+    }
+
+    private void gegenstandAnlegen(){
+
+        Gegenstand schluessel, taschenlampe, apfel, medizin, knochen;
+
+        schluessel = new Gegenstand("", 3);
+        taschenlampe = new Gegenstand("Damit findet man sich besser zurecht", 6);
+        apfel = new Gegenstand("Gegen den Hunger", 4);
+        medizin = new Gegenstand("Für schwere Zeiten", 4);
+
+        
+
     }
 
     /**
@@ -116,7 +134,11 @@ public class Spiel
         else if (befehlswort.equals("go")) {
             wechsleRaum(befehl);
         }
-        else if (befehlswort.equals("quit")) {
+        else if (befehlswort.equals("look")){
+            umsehen();
+        } else if (befehlswort.equals("eat")) {
+            essen();
+        } else if (befehlswort.equals("quit")) {
             moechteBeenden = beenden(befehl);
         }
 
@@ -136,7 +158,7 @@ public class Spiel
         System.out.println("Sie irren auf dem Unigelände herum.");
         System.out.println();
         System.out.println("Ihnen stehen folgende Befehle zur Verfügung:");
-        System.out.println("   go quit help");
+        parser.zeigeBefehle();
     }
 
     /**
@@ -182,6 +204,14 @@ public class Spiel
             System.out.println("Sie sind " + aktuellerRaum.gibBeschreibung());
             System.out.print(aktuellerRaum.gibAusgaengeAlsString());
         }
+    }
+
+    private void umsehen(){
+        System.out.println(aktuellerRaum.gibLangeBeschreibung());
+    }
+
+    private void essen(){
+        System.out.println("Sie haben nun gegessen und sind nicht mehr hungrig.");
     }
 
     /**

@@ -67,4 +67,8 @@ class Parser
         }
     }
 
+    public void zeigeBefehle() {
+        befehle.gibBefehlliste();
+    }
+
 }

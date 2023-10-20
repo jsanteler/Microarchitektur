@@ -113,4 +113,38 @@ Mit der foreach Schleife durchlaufe ich alle Schlüssel in "keys", jeder Schlüs
 
 Die Methode gibLangeBeschreibung() implementieren.
 
-### Übung
+### Übung 8.12 & 8.13:
+
+Objektdiagram
+
+### Übnung 8.14:
+
+Den Befehl look hinzufügen.
+
+### Übung 8.15:
+
+Den Befehl eat hinzufügen.
+
+### Übung 8.15:
+
+Verbesserte Ausgabe der Befehle implementieren.
+
+### Übung 8.17:
+
+Wenn ich einen weiteren Befehl hinzufüge muss ich immer noch die Methode "verarbeiteBefehl" anpassen bzw verändern.
+
+### Übung 8.18:
+
+gibBefehlliste();
+
+### Übung 8.19:
+
+MVC ist ein Designmuster, das Software in drei Teile unterteilt:
+
+Model (Modell): Daten und Geschäftslogik.
+View (Ansicht): Benutzeroberfläche und Anzeige.
+Controller (Steuerung): Benutzerinteraktion und Kommunikation.
+
+Es fördert die Trennung von Daten, Darstellung und Steuerung für eine bessere Struktur und Wartbarkeit von Software.
+
+### Übung 8.20:
