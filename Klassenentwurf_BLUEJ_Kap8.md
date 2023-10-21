@@ -147,4 +147,32 @@ Controller (Steuerung): Benutzerinteraktion und Kommunikation.
 
 Es fördert die Trennung von Daten, Darstellung und Steuerung für eine bessere Struktur und Wartbarkeit von Software.
 
-### Übung 8.20:
+### Übung 8.20 , 8.21 & 8.22:
+
+Hier war die Aufgabe Gegenstände jeden Raum hinzuzufügen.
+Ich habe eine eigene Klasse für Gegenstände erzeugt. Mit den Datenfeldern name, beschreibung und gewicht.
+
+In der Raum Klasse habe ich eine HashMap angelegt mit key ist ein String und value ist der Gegenstand.
+
+    public void gegenstandAblegen (Gegenstand gegenstand){
+        gegenstandMap.put(gegenstand.getName(), gegenstand);
+
+    }
+
+So füge ich einen Gegenstand einen Raum hinzu.
+halle.gegenstandAblegen(schluessel);
+
+    public String gibGegenstaendeAlsString(){
+
+        String ergebnis = "Es befindet sich ein Gegenstand in diesem Raum: ";
+        Set<String> keys =  gegenstandMap.keySet();
+
+        for (String gegenstand: keys) {
+            ergebnis += " " + gegenstand;
+        }return ergebnis;
+    }
+
+Mir dieser Methode lasse ich mir die Keys (die Gegenstände) als String ausgeben.
+
+8.23:
+Den Befehl back implementieren.

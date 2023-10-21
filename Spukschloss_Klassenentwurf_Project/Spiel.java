@@ -23,6 +23,7 @@ public class Spiel
 {
     private Parser parser;
     private Raum aktuellerRaum;
+    private Raum vorherigerRaum;
 
     private Gegenstand gegenstand;
 
@@ -60,23 +61,23 @@ public class Spiel
         keller.setzeAusgang("west", halle);
         kammer.setzeAusgang("south", keller);
 
-        aktuellerRaum = draussen;  // das Spiel startet draussen
+        aktuellerRaum = draussen;// das Spiel startet draussen
 
-
-    }
-
-    private void gegenstandAnlegen(){
-
+        // die Gegenstände erzeugen
         Gegenstand schluessel, taschenlampe, apfel, medizin, knochen;
 
-        schluessel = new Gegenstand("", 3);
-        taschenlampe = new Gegenstand("Damit findet man sich besser zurecht", 6);
-        apfel = new Gegenstand("Gegen den Hunger", 4);
-        medizin = new Gegenstand("Für schwere Zeiten", 4);
+        schluessel = new Gegenstand("Schluessel","Geheimer Schlüssel", 3);
+        taschenlampe = new Gegenstand("Taschenlampe","Taschenlampe", 6);
+        apfel = new Gegenstand("Apfel","Ein roter Apfel", 4);
+        medizin = new Gegenstand("Verbandskoffer","Verbandskoffer", 4);
 
-        
 
+        halle.gegenstandAblegen(schluessel);
+        keller.gegenstandAblegen(taschenlampe);
+        saal.gegenstandAblegen(apfel);
+        kammer.gegenstandAblegen(medizin);
     }
+
 
     /**
      * Die Hauptmethode zum Spielen. Läuft bis zum Ende des Spiels
@@ -109,9 +110,9 @@ public class Spiel
         System.out.println("Sie sind " + aktuellerRaum.gibBeschreibung());
         System.out.println(aktuellerRaum.gibAusgaengeAlsString());
 
+
+
     }
-
-
 
 
     /**
@@ -138,6 +139,8 @@ public class Spiel
             umsehen();
         } else if (befehlswort.equals("eat")) {
             essen();
+        }else if (befehlswort.equals("back")) {
+                back();
         } else if (befehlswort.equals("quit")) {
             moechteBeenden = beenden(befehl);
         }
@@ -178,31 +181,18 @@ public class Spiel
 
         // Wir versuchen, den Raum zu verlassen.
 
-
         Raum naechsterRaum = aktuellerRaum.gibAusgang(richtung);
+        geheRaum(naechsterRaum);
 
 
-        /*
-        if(richtung.equals("north")) {
-            naechsterRaum = aktuellerRaum.gibAusgang("north");
-        }
-        if(richtung.equals("east")) {
-            naechsterRaum = aktuellerRaum.gibAusgang("east");
-        }
-        if(richtung.equals("south")) {
-            naechsterRaum = aktuellerRaum.gibAusgang("south");
-        }
-        if(richtung.equals("west")) {
-            naechsterRaum = aktuellerRaum.gibAusgang("west");
-        }
-*/
+
         if (naechsterRaum == null) {
             System.out.println("Dort ist keine Tür!");
         }
         else {
             aktuellerRaum = naechsterRaum;
-            System.out.println("Sie sind " + aktuellerRaum.gibBeschreibung());
-            System.out.print(aktuellerRaum.gibAusgaengeAlsString());
+            System.out.println(aktuellerRaum.gibLangeBeschreibung());
+
         }
     }
 
@@ -214,6 +204,27 @@ public class Spiel
         System.out.println("Sie haben nun gegessen und sind nicht mehr hungrig.");
     }
 
+
+    public void back() {
+        if (vorherigerRaum != null) {
+            aktuellerRaum = vorherigerRaum; // Den aktuellen Raum auf den vorherigen Raum setzen
+            vorherigerRaum = null; // Zurücksetzen des vorherigen Raums, da der Spieler jetzt dort ist
+            System.out.println("Du bist zurück im Raum: " + aktuellerRaum.gibBeschreibung());
+        } else {
+            System.out.println("Du kannst nicht zurückgehen, da du noch nicht in einem anderen Raum warst.");
+        }
+    }
+
+
+    public void geheRaum(Raum zielRaum) {
+        if (zielRaum != null) {
+            vorherigerRaum = aktuellerRaum; // Speichern Sie den aktuellen Raum als vorherigen Raum
+            aktuellerRaum = zielRaum; // Den aktuellen Raum auf den Zielraum setzen
+            System.out.println("Du bist im Raum: " + aktuellerRaum.gibBeschreibung());
+        } else {
+            System.out.println("Der Ausgang existiert nicht.");
+        }
+    }
     /**
      * "quit" wurde eingegeben. Überprüfe den Rest des Befehls,
      * ob das Spiel wirklich beendet werden soll.

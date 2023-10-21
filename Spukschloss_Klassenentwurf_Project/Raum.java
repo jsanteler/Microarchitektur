@@ -21,7 +21,8 @@ public class Raum
 {
   private String beschreibung;
   private HashMap<String, Raum> ausgaenge;
-  private Gegenstand gegenstand;
+
+  private HashMap <String, Gegenstand> gegenstandMap;
     /**
      * Erzeuge einen Raum mit einer Beschreibung. Ein Raum
      * hat anfangs keine Ausgänge. Eine Beschreibung hat die Form 
@@ -32,7 +33,8 @@ public class Raum
     {
         this.beschreibung = beschreibung;
         ausgaenge = new HashMap<>();
-        gegenstand = null;
+        gegenstandMap = new HashMap<>();
+
     }
 
 
@@ -57,6 +59,15 @@ public class Raum
         }return ergebnis;
     }
 
+    public String gibGegenstaendeAlsString(){
+
+        String ergebnis = "Es befindet sich ein Gegenstand in diesem Raum: ";
+        Set<String> keys =  gegenstandMap.keySet();
+
+        for (String gegenstand: keys) {
+            ergebnis += " " + gegenstand;
+        }return ergebnis;
+    }
     /**
      * @return  die Beschreibung dieses Raums
      */
@@ -74,13 +85,14 @@ public class Raum
 
     public String gibLangeBeschreibung(){
 
-        return "Sie sind " + beschreibung + ".\n" +gibAusgaengeAlsString();
+        return "Sie sind " + beschreibung + ".\n" +gibAusgaengeAlsString() + ".\n" + gibGegenstaendeAlsString() ;
+
     }
 
-    public void setzteGegenstand (Gegenstand gegenstand){
-        this.gegenstand = gegenstand;
-    }
+    public void gegenstandAblegen (Gegenstand gegenstand){
+        gegenstandMap.put(gegenstand.getName(), gegenstand);
 
+    }
 
 }
 
