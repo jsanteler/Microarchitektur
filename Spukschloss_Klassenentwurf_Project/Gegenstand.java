@@ -6,6 +6,8 @@ public class Gegenstand {
 
     private int gegenstandGewicht;
 
+    private int gesamtgewicht;
+
 
 
     public Gegenstand(String name, String gegenstandBeschreibung, int gegenstandGewicht) {
@@ -40,5 +42,15 @@ public class Gegenstand {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    public int getGesamtgewicht() {
+        return gesamtgewicht;
+    }
+
+    public void setGesamtgewicht(int gesamtgewicht) {
+        this.gesamtgewicht = gesamtgewicht;
+    }
 }
+
 

@@ -176,3 +176,17 @@ Mir dieser Methode lasse ich mir die Keys (die Gegenstände) als String ausgeben
 
 8.23:
 Den Befehl back implementieren.
+
+8.24:
+Wenn man back und ein zweites Wort eingibt, wird das zweite Wort ignoriert.
+Man kann nur einmal den Befehl back verwenden. Da er sich nur den vorherigen Raum merkt.
+
+8.25:
+Es kann nur einmal zurück gegangen werden da er sich nur den vorherigen Raum merkt.
+
+8.27:
+
+Testen ob die Räume verknüpft sind
+Ob die Befehle das tun, was sie sollen.
+
+8.28:

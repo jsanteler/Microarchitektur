@@ -23,6 +23,8 @@ public class Raum
   private HashMap<String, Raum> ausgaenge;
 
   private HashMap <String, Gegenstand> gegenstandMap;
+
+
     /**
      * Erzeuge einen Raum mit einer Beschreibung. Ein Raum
      * hat anfangs keine Ausgänge. Eine Beschreibung hat die Form 
@@ -92,6 +94,15 @@ public class Raum
     public void gegenstandAblegen (Gegenstand gegenstand){
         gegenstandMap.put(gegenstand.getName(), gegenstand);
 
+    }
+    public Gegenstand getGegenstand(String name)
+    {
+        return gegenstandMap.get(name);
+    }
+
+    public Gegenstand entferneGegenstand(String name)
+    {
+        return gegenstandMap.remove(name);
     }
 
 }

@@ -24,14 +24,14 @@ public class Spiel
     private Parser parser;
     private Raum aktuellerRaum;
     private Raum vorherigerRaum;
-
-    private Gegenstand gegenstand;
+    private Spieler spieler;
 
     /**
      * Erzeuge ein Spiel und initialisiere die interne Raumkarte.
      */
     public Spiel()
     {
+        spieler = new Spieler("Julian");
         raeumeAnlegen();
         parser = new Parser();
 
@@ -62,6 +62,7 @@ public class Spiel
         kammer.setzeAusgang("south", keller);
 
         aktuellerRaum = draussen;// das Spiel startet draussen
+        spieler.betreteRaum(draussen);
 
         // die Gegenstände erzeugen
         Gegenstand schluessel, taschenlampe, apfel, medizin, knochen;
