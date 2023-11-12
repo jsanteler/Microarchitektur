@@ -1,5 +1,5 @@
 public interface ISammelumrechnung {
 
-    public double sammelrechnungen (double[] betraege, String variante);
+    public double sammelumrechnen (double[] betraege, String variante);
 
 }
