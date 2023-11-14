@@ -1,12 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class WR implements IUmrechnen {
 
     protected WR naechster;
 
+    private List<Observer> observers = new ArrayList<>();
     public abstract String getKennung();
 
     public void setNaechster(WR naechster) {
         this.naechster = naechster;
     }
+
 
     //Template-Methode
     @Override
@@ -52,6 +57,16 @@ public abstract class WR implements IUmrechnen {
             }
             vorheriger = aktuell;
             aktuell = aktuell.naechster;
+        }
+    }
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void notifyObservers(double ausgangsbetrag, String ausgangswaehrung, String zielwaehrung, double zielbetrag) {
+        for (Observer observer : observers) {
+            observer.update(ausgangsbetrag, ausgangswaehrung, zielwaehrung, zielbetrag);
         }
     }
 
