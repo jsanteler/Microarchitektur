@@ -5,6 +5,14 @@ Zuerst werde ich Kapitel 8 durcharbeiten. Hier geht es um Kassenentwurf. Das zwe
 
 ## BLUEJ-Buch KLASSENENTWURF
 
+## Kohäsion:
+
+Eine Methode, eine Klasse oder ein Modul ist für genau eine wohldefinierte Aufgabe oder Einheit zuständig.
+
+## Koppelung:
+
+Beschreibt den Grad der Abhängigkeit zwischen Klassen. Wir streben für eine mögichst lose Koppelung. Also ein System, in dem jede Klasse weitgehend unabhängig ist und mit anderen Klassen nur über möglichst schmale, wohldefindierte Schnittstellen kommuniziert.
+
 ### Übung 8.1:
 
 Projekt Zuul-schlecht öffnen und diese ANwendung erkunden.

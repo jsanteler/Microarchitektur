@@ -8,11 +8,13 @@ public class EUR2USD extends WR {
     private double faktor;
 
     private EUR2USD(double faktor) {
+
         this.faktor = faktor;
     }
 
     @Override
     public double getFaktor(){
+
         return faktor;
     }
 
@@ -25,6 +27,8 @@ public class EUR2USD extends WR {
         }
     }
 
+    //Statische Interne Klasse
+    //Static damit man kein Objekt erstellen muss
     public static class Builder{
         private double faktor;
         private WR next;

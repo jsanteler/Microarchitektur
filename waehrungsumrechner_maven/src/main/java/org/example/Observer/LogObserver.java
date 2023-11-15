@@ -10,7 +10,7 @@ public class LogObserver implements Observer {
     private String logFilePath;
     private static final String LOG_FILE_NAME = "logdatei.txt";
     public LogObserver() {
-        // Setzen des Pfads der Log-Datei (kann absolut oder relativ sein)
+        // Setzen des Pfads der Log-Datei
         this.logFilePath = LOG_FILE_NAME;
         try {
             // Erstellen eines File-Objekts für die Log-Datei
@@ -25,8 +25,12 @@ public class LogObserver implements Observer {
     }
     @Override
     public void update(String message) {
+        //Zeitstempel
         String logEntry = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME) + " - " + message + System.lineSeparator();
+        //erstes try fängt Fehler, die beim Schreiben passieren können
         try {
+            //zweites try sorgt dafür, dass die Datei immer richtig geschlossen wird, auch wenn ein Fehler auftritt.
+
             try (FileWriter writer = new FileWriter(this.logFilePath, true)) { // 'true' fügt ans Dateiende hinzu
                 writer.write(logEntry);
                 System.out.println("Nachricht erfolgreich in Log-Datei geschrieben: " + message);

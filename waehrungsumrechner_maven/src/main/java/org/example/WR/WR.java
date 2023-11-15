@@ -16,6 +16,7 @@ public abstract class WR implements IUmrechnen, Subject {
 
     private WR next;
 
+    //Observer in Liste aufnehmen und werden benachrihtigt und schreiben in Logobserver rein
     private List<Observer> observers = new ArrayList<>();
 
     public double umrechnen(String variante, double betrag) throws InvalidVarianteException {
@@ -34,7 +35,12 @@ public abstract class WR implements IUmrechnen, Subject {
     }
 
 
+
     public void addChain(WR next) {
+        if (next == this){
+            throw new IllegalArgumentException("Das selbe Kettenmitglied kann nicht mehrmals an die Kette hinzugefügt werden");
+
+        }
         if (this.next == null)
         {
             this.next = next;
@@ -42,19 +48,20 @@ public abstract class WR implements IUmrechnen, Subject {
         else
         {
             this.next.addChain(next);
+            //Abklären
         }
     }
 
-    public void removeChain(WR removeChain)
-    {
-        if (this.next == removeChain) {
-            this.next = this.next.next;
-        }
-        else if (this.next != null)
-        {
-            this.next.removeChain(removeChain);
+    //Nur am vorletzten
+
+    public void removenext(){
+        if (this.next == null){
+            System.out.println("Kein Element vorhanden");
+        }else{
+            this.next = null;
         }
     }
+
 
     @Override
     public abstract double getFaktor();

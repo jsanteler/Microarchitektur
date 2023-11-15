@@ -15,6 +15,7 @@ public class AtomFeedObserver implements Observer {
 
     public AtomFeedObserver() {
         this.feed = new Feed();
+        //Aktuelle FeedType (Standartisiert)
         this.feed.setFeedType("atom_1.0");
         this.feed.setTitle("Währungsrechnungen");
 
@@ -22,10 +23,13 @@ public class AtomFeedObserver implements Observer {
 
     @Override
     public void update(String message) {
+        //Eintrag +Titel
         Entry entry = new Entry();
         entry.setTitle("Aktualisierung der Währungsrechner");
+        //Eintrag für neues Datum (Zeitstempel)
         entry.setUpdated(new Date());
 
+        //Inhalt Zusammenfassung
         Content summary = new Content();
         summary.setValue(message);
         entry.setSummary(summary);

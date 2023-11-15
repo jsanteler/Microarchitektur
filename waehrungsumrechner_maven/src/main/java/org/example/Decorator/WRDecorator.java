@@ -9,6 +9,7 @@ public abstract class WRDecorator extends WR {
     protected WR decoratedWR;
 
     public WRDecorator(WR decoratedWR) {
+
         this.decoratedWR = decoratedWR;
     }
 

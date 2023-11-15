@@ -5,7 +5,7 @@ import org.example.WR.WR;
 public class EUR2YEN extends WR {
     @Override
     public double getFaktor() {
-        return 1.2;
+        return 1000;
     }
 
     @Override
