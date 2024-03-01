@@ -1,4 +1,4 @@
-# Waehrungsrechner mit verschiedenen Entwurfsmustern
+# Währungsrechner mit verschiedenen Entwurfsmustern
 
 Die im Laufe der folgenden Aufgaben zu erstellende Software bildet einen einfachen Währungsrechner nach, der unter Anwendung verschiedener Entwurfsmuster implementiert werden muss. 
 ### CHAIN OF RESPONSIBILITY
